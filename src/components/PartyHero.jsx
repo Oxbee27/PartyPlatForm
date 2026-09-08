@@ -3,26 +3,35 @@ import { Link } from 'react-router-dom';
 
 const nationalLeaders = [
   {
-    name: 'Bola Ahmed Tinubu',
-    role: 'President of Nigeria',
+    name: 'Abubakar Tafawa Balewa',
+    role: 'Prime Minister of Nigeria',
     image:
-      'https://statehouse.gov.ng/wp-content/uploads/2025/07/bola-tinubu-768x857.jpg',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Abubakar_Tafawa_Balewa.jpg',
   },
   {
-    name: 'Kashim Shettima',
-    role: 'Vice President of Nigeria',
+    name: 'Nnamdi Azikiwe',
+    role: 'President of Nigeria',
     image:
-      'https://statehouse.gov.ng/wp-content/uploads/2025/07/kashim-shettima-768x857.jpg',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nnamdi_Azikiwe.jpg',
   },
-];
-
-/*
-  Former Nigerian national leaders.
-
-  These are presented as historical national figures,
-  NOT as Iconicparty officers.
-*/
-const formerLeaders = [
+  {
+    name: 'Johnson Aguiyi-Ironsi',
+    role: 'Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Johnson_Aguiyi-Ironsi.jpg',
+  },
+  {
+    name: 'Yakubu Gowon',
+    role: 'Former Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Yakubu_Gowon.jpg',
+  },
+  {
+    name: 'Murtala Ramat Mohammed',
+    role: 'Former Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Murtala_Mohammed.jpg',
+  },
   {
     name: 'Olusegun Obasanjo',
     role: 'Former President & Head of State',
@@ -30,16 +39,34 @@ const formerLeaders = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Gen.%20Olusegun%20Obasanjo.jpg',
   },
   {
-    name: 'Yakubu Gowon',
-    role: 'Former Head of State',
+    name: 'Shehu Shagari',
+    role: 'Former President of Nigeria',
     image:
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Yakubu%20Gowon.jpg',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Shehu_Shagari.jpg',
+  },
+  {
+    name: 'Muhammadu Buhari',
+    role: 'Former President & Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Muhammadu_Buhari.jpg',
   },
   {
     name: 'Ibrahim Babangida',
     role: 'Former Military President',
     image:
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Ibrahim%20Babangida%20%28cropped%29.jpg',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ibrahim_Babangida_%28cropped%29.jpg',
+  },
+  {
+    name: 'Ernest Shonekan',
+    role: 'Interim Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ernest_Shonekan.jpg',
+  },
+  {
+    name: 'Sani Abacha',
+    role: 'Former Head of State',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sani_Abacha.jpg',
   },
   {
     name: 'Abdulsalami Abubakar',
@@ -47,12 +74,48 @@ const formerLeaders = [
     image:
       'https://commons.wikimedia.org/wiki/Special:FilePath/Gen.%20Abdulsalam%20A.%20Abubakar.jpg',
   },
+  {
+    name: 'Umaru Musa Yar’Adua',
+    role: 'Former President of Nigeria',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Umaru_Yar%27Adua.jpg',
+  },
+  {
+    name: 'Goodluck Ebele Jonathan',
+    role: 'Former President of Nigeria',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Goodluck_Jonathan.jpg',
+  },
+  {
+    name: 'Muhammadu Buhari',
+    role: 'Former President of Nigeria',
+    image:
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Muhammadu_Buhari.jpg',
+  },
+  {
+    name: 'Bola Ahmed Tinubu',
+    role: 'President of Nigeria',
+    image:
+      'https://statehouse.gov.ng/wp-content/uploads/2025/07/bola-tinubu-768x857.jpg',
+    current: true,
+  },
+  {
+    name: 'Kashim Shettima',
+    role: 'Vice President of Nigeria',
+    image:
+      'https://statehouse.gov.ng/wp-content/uploads/2025/07/kashim-shettima-768x857.jpg',
+    current: true,
+  },
 ];
+
+/*
+  We duplicate the data so the animation can loop continuously.
+*/
+const scrollingLeaders = [...nationalLeaders, ...nationalLeaders];
 
 export default function PartyHero() {
   return (
-    <section className="relative min-h-screen overflow-visible bg-[#F5FAF7] text-[#123126]">
-
+    <section className="relative min-h-screen overflow-hidden bg-[#F5FAF7] text-[#123126]">
       {/* ==================================================
           BACKGROUND
       ================================================== */}
@@ -78,14 +141,13 @@ export default function PartyHero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 pb-20 pt-10 sm:px-8 lg:px-10">
-
         {/* ==================================================
             MAIN PARTY HEADING
         ================================================== */}
 
         <div className="relative mx-auto mt-20 max-w-6xl text-center sm:mt-24">
-
           {/* Eyebrow */}
+
           <div className="inline-flex items-center gap-3 rounded-full border border-[#087443]/10 bg-white px-5 py-2.5 shadow-sm">
             <span className="flex h-2.5 w-2.5 animate-pulse rounded-full bg-[#C62828]" />
 
@@ -95,23 +157,24 @@ export default function PartyHero() {
           </div>
 
           {/* Main heading */}
+
           <h1 className="mx-auto mt-8 max-w-6xl font-display text-5xl font-black leading-[0.92] tracking-tight text-[#063B25] sm:text-7xl lg:text-[6.5rem]">
             Building the Nigeria
-
             <span className="block text-[#C62828]">
               we believe in.
             </span>
           </h1>
 
           {/* Description */}
+
           <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-[#123126]/60 sm:text-lg">
             A modern political movement committed to strong leadership,
             national development and a better future for every Nigerian.
           </p>
 
           {/* Buttons */}
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
 
+          <div className="mt-9 flex flex-wrap justify-center gap-3">
             <Link
               to="/join"
               className="group inline-flex items-center gap-3 rounded-full bg-[#C62828] px-7 py-4 text-sm font-bold text-white shadow-xl shadow-[#C62828]/20 transition duration-300 hover:-translate-y-1 hover:bg-[#9E1F1F]"
@@ -137,19 +200,13 @@ export default function PartyHero() {
         ================================================== */}
 
         <div className="relative mx-auto mt-16 flex h-32 w-32 items-center justify-center sm:mt-20 sm:h-40 sm:w-40">
-
-          {/* Orbit */}
           <div className="absolute inset-0 animate-[partyOrbit_15s_linear_infinite] rounded-full border border-dashed border-[#087443]/20" />
 
-          {/* Outer glow */}
           <div className="absolute -inset-3 rounded-full bg-[#087443]/5 blur-xl" />
 
-          {/* White circle */}
           <div className="absolute inset-3 rounded-full bg-white shadow-xl shadow-[#087443]/10" />
 
-          {/* Main logo */}
           <div className="relative flex h-24 w-24 animate-[partyLogoPulse_4s_ease-in-out_infinite] flex-col items-center justify-center rounded-full border-[6px] border-[#087443] bg-white sm:h-32 sm:w-32">
-
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C62828] shadow-md">
               <div className="h-4 w-4 rounded-full bg-white" />
             </div>
@@ -165,85 +222,150 @@ export default function PartyHero() {
         </div>
 
         {/* ==================================================
-            NATIONAL LEADERSHIP
+            SINGLE NATIONAL LEADERSHIP CAROUSEL
         ================================================== */}
 
-        <div className="mx-auto mt-16 max-w-5xl">
-
-          <div className="mb-8 text-center">
-            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#087443]/50">
-              Current National Leadership
-            </p>
-
-            <div className="mx-auto mt-3 h-1 w-12 rounded-full bg-[#C62828]" />
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {nationalLeaders.map((leader, index) => (
-              <NationalLeader
-                key={leader.name}
-                leader={leader}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* ==================================================
-            DIVIDER
-        ================================================== */}
-
-        <div className="mx-auto my-20 flex max-w-5xl items-center gap-5">
-
-          <div className="h-px flex-1 bg-[#087443]/10" />
-
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#C62828]" />
-            <span className="h-2 w-2 rounded-full bg-[#087443]" />
-            <span className="h-2 w-2 rounded-full bg-[#C62828]" />
-          </div>
-
-          <div className="h-px flex-1 bg-[#087443]/10" />
-        </div>
-
-        {/* ==================================================
-            FORMER NATIONAL LEADERS
-        ================================================== */}
-
-        <section className="mx-auto max-w-6xl">
+        <section className="relative mx-auto mt-20 max-w-7xl">
+          {/* Heading */}
 
           <div className="text-center">
-
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-8 bg-[#C62828]" />
 
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#C62828]">
-                Former National Leaders
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-[#087443]">
+                Nigeria's National Leadership
               </span>
 
               <span className="h-px w-8 bg-[#C62828]" />
             </div>
 
-            <h2 className="mt-4 font-display text-3xl font-black text-[#063B25] sm:text-5xl">
-              Leaders who shaped Nigeria.
+            <h2 className="mt-4 font-display text-3xl font-black tracking-tight text-[#063B25] sm:text-5xl">
+              A nation shaped by its leaders.
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#123126]/55 sm:text-base">
-              A look at some of Nigeria&apos;s former national leaders whose
-              public service and administrations form part of the nation&apos;s
-              political history.
+              Past and present national leaders presented together as one
+              continuous story of Nigeria's political journey.
             </p>
           </div>
 
-          {/* Former national leader cards */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {formerLeaders.map((leader, index) => (
-              <FormerLeader
-                key={leader.name}
-                leader={leader}
-                index={index}
-              />
-            ))}
+          {/* Scroll hint */}
+
+          <div className="mt-6 flex items-center justify-center gap-3 text-[9px] font-black uppercase tracking-[0.2em] text-[#087443]/45">
+            <span>←</span>
+            <span>Scroll to explore</span>
+            <span>→</span>
+          </div>
+
+          {/* ==================================================
+              SCROLLING LEADER RAIL
+          ================================================== */}
+
+          <div className="relative mt-8">
+            {/* Left fade */}
+
+            <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-16 bg-gradient-to-r from-[#F5FAF7] to-transparent sm:w-24" />
+
+            {/* Right fade */}
+
+            <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-16 bg-gradient-to-l from-[#F5FAF7] to-transparent sm:w-24" />
+
+            {/* Actual scroll container */}
+
+            <div className="leader-scroll overflow-x-auto px-5 pb-6 pt-3 scrollbar-hide">
+              <div className="leader-track flex w-max gap-5">
+                {scrollingLeaders.map((leader, index) => (
+                  <article
+                    key={`${leader.name}-${index}`}
+                    className="leader-card group relative w-[235px] shrink-0 sm:w-[255px]"
+                  >
+                    <div
+                      className={`relative overflow-hidden rounded-[2rem] border bg-white p-3 shadow-[0_18px_55px_rgba(6,59,37,0.07)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_28px_70px_rgba(6,59,37,0.13)] ${
+                        leader.current
+                          ? 'border-[#C62828]/25'
+                          : 'border-[#087443]/10'
+                      }`}
+                    >
+                      {/* Portrait */}
+
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-[#E8F5EE]">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          loading={index < 6 ? 'eager' : 'lazy'}
+                          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-110"
+                        />
+
+                        {/* Image gradient */}
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#063B25]/90 via-[#063B25]/10 to-transparent" />
+
+                        {/* Current badge */}
+
+                        {leader.current && (
+                          <div className="absolute left-4 top-4 rounded-full bg-[#C62828] px-3 py-1.5 text-[8px] font-black uppercase tracking-[0.16em] text-white shadow-lg">
+                            Current
+                          </div>
+                        )}
+
+                        {/* Sequence */}
+
+                        <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[10px] font-black text-[#063B25] shadow-lg backdrop-blur">
+                          {String((index % nationalLeaders.length) + 1).padStart(
+                            2,
+                            '0'
+                          )}
+                        </div>
+
+                        {/* Leader information */}
+
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                          <p
+                            className={`text-[8px] font-black uppercase tracking-[0.2em] ${
+                              leader.current
+                                ? 'text-[#FF8A8A]'
+                                : 'text-[#70BA91]'
+                            }`}
+                          >
+                            {leader.current
+                              ? 'National Leadership'
+                              : 'Nigerian Leadership'}
+                          </p>
+
+                          <h3 className="mt-1 font-display text-xl font-black leading-tight text-white">
+                            {leader.name}
+                          </h3>
+
+                          <p className="mt-1 text-xs font-semibold leading-5 text-white/70">
+                            {leader.role}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Bottom accent */}
+
+                      <div className="mt-3 flex h-1 overflow-hidden rounded-full bg-[#F5FAF7]">
+                        <div className="w-1/3 bg-[#087443]" />
+                        <div className="w-1/3 bg-white" />
+                        <div className="w-1/3 bg-[#C62828]" />
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Carousel status */}
+
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <span className="h-1.5 w-8 rounded-full bg-[#C62828]" />
+
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#063B25]/35">
+              Past • Present • Progress
+            </span>
+
+            <span className="h-1.5 w-8 rounded-full bg-[#087443]" />
           </div>
         </section>
 
@@ -252,9 +374,7 @@ export default function PartyHero() {
         ================================================== */}
 
         <div className="mx-auto mt-16 max-w-4xl">
-
           <div className="grid overflow-hidden rounded-3xl border border-[#087443]/10 bg-white shadow-sm sm:grid-cols-3">
-
             <Value
               number="01"
               title="People"
@@ -272,7 +392,6 @@ export default function PartyHero() {
               title="Prosperity"
               text="A stronger future and greater opportunity for Nigerians."
             />
-
           </div>
         </div>
 
@@ -281,15 +400,12 @@ export default function PartyHero() {
         ================================================== */}
 
         <div className="mx-auto mt-16 max-w-5xl">
-
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[#063B25] px-7 py-14 text-center shadow-2xl sm:px-16">
-
             <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-[#C62828]/20 blur-3xl" />
 
             <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-[#087443]/40 blur-3xl" />
 
             <div className="relative">
-
               <p className="text-[10px] font-black uppercase tracking-[0.25em] text-[#C62828]">
                 Join Iconicparty
               </p>
@@ -304,7 +420,6 @@ export default function PartyHero() {
               </p>
 
               <div className="mt-8 flex flex-wrap justify-center gap-3">
-
                 <Link
                   to="/join"
                   className="rounded-full bg-[#C62828] px-7 py-3.5 text-sm font-bold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-[#E53935]"
@@ -318,7 +433,6 @@ export default function PartyHero() {
                 >
                   Volunteer
                 </Link>
-
               </div>
             </div>
           </div>
@@ -329,7 +443,6 @@ export default function PartyHero() {
         ================================================== */}
 
         <div className="mt-12 flex justify-center">
-
           <a
             href="#next-section"
             className="group flex flex-col items-center gap-2 text-[#087443]/40 transition hover:text-[#C62828]"
@@ -342,9 +455,7 @@ export default function PartyHero() {
               ↓
             </span>
           </a>
-
         </div>
-
       </div>
 
       {/* ==================================================
@@ -376,204 +487,60 @@ export default function PartyHero() {
           }
         }
 
-        @keyframes nationalFloat {
-          0% {
-            transform: translateY(8px) scale(0.985);
+        @keyframes leaderScroll {
+          from {
+            transform: translateX(0);
           }
 
-          25% {
-            transform: translateY(0) scale(1);
-          }
-
-          50% {
-            transform: translateY(-7px) scale(1.015);
-          }
-
-          75% {
-            transform: translateY(0) scale(1);
-          }
-
-          100% {
-            transform: translateY(8px) scale(0.985);
+          to {
+            transform: translateX(-50%);
           }
         }
 
-        @keyframes formerLeaderFloat {
-          0% {
-            transform: translateY(10px) scale(0.97);
-          }
+        .leader-track {
+          animation: leaderScroll 80s linear infinite;
+        }
 
-          20% {
-            transform: translateY(0) scale(1);
-          }
+        .leader-scroll:hover .leader-track {
+          animation-play-state: paused;
+        }
 
-          50% {
-            transform: translateY(-9px) scale(1.025);
-          }
+        .leader-scroll:active .leader-track {
+          animation-play-state: paused;
+        }
 
-          75% {
-            transform: translateY(0) scale(1);
-          }
+        .scrollbar-hide {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
 
-          100% {
-            transform: translateY(10px) scale(0.97);
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        @media (max-width: 640px) {
+          .leader-track {
+            animation-duration: 65s;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
+          .leader-track,
+          .leader-scroll:hover .leader-track,
+          .leader-scroll:active .leader-track {
+            animation: none !important;
+          }
+
           *,
           *::before,
           *::after {
-            animation: none !important;
             scroll-behavior: auto !important;
           }
         }
       `}</style>
-
     </section>
   );
 }
-
-
-/* =====================================================
-   NATIONAL LEADER
-===================================================== */
-
-function NationalLeader({ leader, index }) {
-  return (
-    <div
-      className="group"
-      style={{
-        animation: 'nationalFloat 7s ease-in-out infinite',
-        animationDelay: `${index * 1.2}s`,
-      }}
-    >
-      <div className="overflow-hidden rounded-[2rem] border border-[#087443]/10 bg-white p-3 shadow-lg shadow-[#087443]/5 transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-        {/* Portrait */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-[#E8F5EE]">
-
-          <img
-            src={leader.image}
-            alt={leader.name}
-            loading="eager"
-            className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
-          />
-
-        </div>
-
-        {/* Information */}
-        <div className="px-2 pb-2 pt-5 text-center">
-
-          <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C62828]">
-            National Leadership
-          </p>
-
-          <h3 className="mt-2 font-display text-2xl font-black text-[#063B25]">
-            {leader.name}
-          </h3>
-
-          <p className="mt-1 text-sm font-semibold text-[#087443]/70">
-            {leader.role}
-          </p>
-
-        </div>
-
-        {/* Nigerian colour strip */}
-        <div className="mt-3 flex h-1 overflow-hidden rounded-full bg-[#F5FAF7]">
-          <div className="w-1/3 bg-[#087443]" />
-          <div className="w-1/3 bg-white" />
-          <div className="w-1/3 bg-[#C62828]" />
-        </div>
-
-      </div>
-    </div>
-  );
-}
-
-
-/* =====================================================
-   FORMER NATIONAL LEADER
-===================================================== */
-
-function FormerLeader({ leader, index }) {
-  return (
-    <article
-      className="group"
-      style={{
-        animation: 'formerLeaderFloat 6s ease-in-out infinite',
-        animationDelay: `${index * 0.75}s`,
-      }}
-    >
-      <div className="overflow-hidden rounded-[2rem] border border-[#087443]/10 bg-white shadow-sm transition duration-500 hover:-translate-y-3 hover:shadow-2xl">
-
-        {/* Portrait */}
-        <div className="relative aspect-[4/5] overflow-hidden bg-[#E8F5EE]">
-
-          <img
-            src={leader.image}
-            alt={leader.name}
-            loading="lazy"
-            className="h-full w-full object-cover object-top grayscale-[10%] transition duration-700 group-hover:scale-110 group-hover:grayscale-0"
-          />
-
-          {/* Soft gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#063B25]/85 via-transparent to-transparent" />
-
-          {/* Number */}
-          <div className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#C62828] text-[10px] font-black text-white shadow-lg">
-            0{index + 1}
-          </div>
-
-          {/* Leader information */}
-          <div className="absolute bottom-0 left-0 right-0 p-5">
-
-            <p className="text-[9px] font-black uppercase tracking-[0.2em] text-[#C62828]">
-              Nigerian Leadership
-            </p>
-
-            <h3 className="mt-1 font-display text-xl font-black text-white">
-              {leader.name}
-            </h3>
-
-            <p className="mt-1 text-xs font-semibold text-white/75">
-              {leader.role}
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Details */}
-        <div className="p-5">
-
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#C62828]" />
-
-            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#087443]">
-              Former National Leader
-            </span>
-          </div>
-
-          <p className="mt-3 text-sm leading-6 text-[#123126]/55">
-            A former Nigerian national leader whose period of public service
-            remains part of the country&apos;s political history.
-          </p>
-
-          {/* Nigerian colours */}
-          <div className="mt-5 flex h-1 overflow-hidden rounded-full">
-            <div className="w-1/3 bg-[#087443]" />
-            <div className="w-1/3 bg-[#F5F5F5]" />
-            <div className="w-1/3 bg-[#C62828]" />
-          </div>
-
-        </div>
-
-      </div>
-    </article>
-  );
-}
-
 
 /* =====================================================
    VALUE
@@ -582,7 +549,6 @@ function FormerLeader({ leader, index }) {
 function Value({ number, title, text }) {
   return (
     <div className="group border-b border-[#087443]/10 p-6 transition hover:bg-[#F5FAF7] sm:border-b-0 sm:border-r last:border-r-0">
-
       <span className="text-[10px] font-black tracking-widest text-[#C62828]">
         {number}
       </span>
@@ -594,8 +560,6 @@ function Value({ number, title, text }) {
       <p className="mt-2 text-xs leading-5 text-[#123126]/55">
         {text}
       </p>
-
     </div>
   );
 }
-
